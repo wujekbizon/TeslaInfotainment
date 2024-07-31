@@ -5,7 +5,6 @@ Rectangle {
   id: playlistPanelRoot
 
   property bool hidden: true
-
   signal searchRequested
 
   height: rightScreen.height - bottomBar.height * 1.8 + 1
@@ -15,7 +14,7 @@ Rectangle {
   gradient: Gradient {
     GradientStop {
       position: 0.0
-      color: "#2e2e2e"
+      color: "black"
     }
 
     GradientStop {
@@ -28,12 +27,12 @@ Rectangle {
     id: playlistText
 
     anchors {
-      left: parent.left
       top: parent.top
       margins: 10
+      horizontalCenter: parent.horizontalCenter
     }
 
-    text: "Playlist"
+    text: "Multimedia Panel Playlist"
     color: "white"
     font {
       bold: true
@@ -49,7 +48,7 @@ Rectangle {
       bottom: addButton.top
       left: parent.left
       right: parent.right
-      margins: 20
+      margins: 40
     }
 
     clip: true
@@ -67,11 +66,26 @@ Rectangle {
       required property int index
 
       width: listView.width
-      height: 50
-
+      height: 70
       radius: 10
-
       color: "#1e1e1e"
+
+      Image {
+        id: delegateImage
+
+        anchors {
+          left: parent.left
+          right: textsColumn.right
+          leftMargin: 15
+          verticalCenter: parent.verticalCenter
+        }
+
+        fillMode: Image.PreserveAspectCrop
+        height: 50
+        opacity: delegeteMouseArea.containsMouse ? 1 : 0.5
+        mipmap: true
+        source: delegate.audioImageSource
+      }
 
       Column {
         id: textsColumn
@@ -80,7 +94,8 @@ Rectangle {
           top: parent.top
           left: parent.left
           right: removeButton.left
-          margins: 5
+          margins: 15
+          leftMargin: 40
         }
 
         spacing: 5
@@ -94,7 +109,7 @@ Rectangle {
           text: delegate.audioTitle
 
           font {
-            pixelSize: 14
+            pixelSize: 17
             bold: true
           }
         }
@@ -108,7 +123,7 @@ Rectangle {
           text: delegate.audioAuthorName
 
           font {
-            pixelSize: 10
+            pixelSize: 13
           }
         }
       }
@@ -117,9 +132,10 @@ Rectangle {
         id: delegeteMouseArea
 
         anchors.fill: parent
+        cursorShape: "PointingHandCursor"
 
+        hoverEnabled: true
         onClicked: {
-          console.log(delegate.index)
           PlayerController.switchToAudioByIndex(delegate.index)
         }
       }
@@ -130,7 +146,7 @@ Rectangle {
         anchors {
           right: parent.right
           verticalCenter: parent.verticalCenter
-          rightMargin: 5
+          rightMargin: 15
         }
 
         width: 30

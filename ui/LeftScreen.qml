@@ -9,7 +9,7 @@ Rectangle {
     left: parent.left
     right: rightScreen.left
   }
-  color: "#fafafa"
+  color: "#1e1e1e"
 
   Image {
     id: carRender
