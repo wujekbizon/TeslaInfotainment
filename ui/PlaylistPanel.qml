@@ -8,10 +8,21 @@ Rectangle {
 
   signal searchRequested
 
-  height: rightScreen.height
+  height: rightScreen.height - bottomBar.height * 1.8 + 1
   width: rightScreen.width
+  z: 1
 
-  color: "#1e1e1e"
+  gradient: Gradient {
+    GradientStop {
+      position: 0.0
+      color: "#2e2e2e"
+    }
+
+    GradientStop {
+      position: 1.0
+      color: "#1e1e1e"
+    }
+  }
 
   Text {
     id: playlistText
@@ -125,7 +136,7 @@ Rectangle {
         width: 30
         height: 30
 
-        source: "../assets/icons/delete.png"
+        source: "assets/icons/delete.png"
 
         onClicked: {
           PlayerController.removeAudio(delegate.index)
@@ -144,7 +155,7 @@ Rectangle {
       margins: 20
     }
 
-    source: "../assets/icons/add.png"
+    source: "assets/icons/add.png"
 
     width: 32
     height: 32

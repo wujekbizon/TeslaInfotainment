@@ -1,7 +1,5 @@
 import QtQuick
-import "ui/BottomBar"
-import "ui/RightScreen"
-import "ui/LeftScreen"
+import "ui"
 
 Window {
   id: root

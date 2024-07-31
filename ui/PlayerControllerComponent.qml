@@ -7,8 +7,7 @@ Rectangle {
 
   height: parent.height * 1.8
   width: parent.width * 0.60
-  topLeftRadius: 10
-  topRightRadius: 10
+
   z: -1
 
   gradient: Gradient {
@@ -33,6 +32,23 @@ Rectangle {
     }
   }
 
+  ImageButton {
+    id: playListIcon
+
+    anchors {
+      right: parent.right
+      top: parent.top
+      margins: 10
+    }
+
+    height: parent.height * .20
+    fillMode: Image.PreserveAspectFit
+
+    source: "assets/icons/playlist.png"
+
+    //visible: searchPanel.hidden
+    onClicked: playlistPanel.hidden = !playlistPanel.hidden
+  }
   Row {
     id: buttonsRow
     anchors {
@@ -52,7 +68,7 @@ Rectangle {
       width: 20
       height: 20
 
-      source: "../assets/icons/previous.png"
+      source: "assets/icons/previous.png"
       onClicked: PlayerController.switchToPreviousSong()
     }
 
@@ -62,7 +78,7 @@ Rectangle {
       width: 20
       height: 20
 
-      source: PlayerController.playing ? "../assets/icons/pause.png" : "../assets/icons/play.png"
+      source: PlayerController.playing ? "assets/icons/pause.png" : "assets/icons/play.png"
       onClicked: PlayerController.playPause()
     }
 
@@ -72,7 +88,7 @@ Rectangle {
       width: 20
       height: 20
 
-      source: "../assets/icons/next.png"
+      source: "assets/icons/next.png"
 
       onClicked: PlayerController.switchToNextSong()
     }

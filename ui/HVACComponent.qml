@@ -20,16 +20,14 @@ Item {
     width: height / 2
     color: "transparent"
 
-    Text {
+    ImageButton {
       id: decrementText
-      color: fontColor
       anchors.centerIn: parent
-      text: "<"
-      font.pixelSize: 18
-    }
+      source: "assets/icons/left-arrow.png"
 
-    MouseArea {
-      anchors.fill: parent
+      height: parent.height * .20
+      fillMode: Image.PreserveAspectFit
+      opacity: 0.6
       onClicked: {
         hvacController.incrementTargetTemperature(-0.5)
       }
@@ -65,18 +63,16 @@ Item {
     width: height / 2
     color: "transparent"
 
-    Text {
+    ImageButton {
       id: incrementText
-      color: fontColor
       anchors.centerIn: parent
-      text: ">"
-      font.pixelSize: 18
-    }
+      source: "assets/icons/right-arrow.png"
 
-    MouseArea {
-      anchors.fill: parent
+      height: parent.height * .20
+      fillMode: Image.PreserveAspectFit
+      opacity: 0.6
       onClicked: {
-        hvacController.incrementTargetTemperature(0.5)
+        hvacController.incrementTargetTemperature(-0.5)
       }
     }
   }

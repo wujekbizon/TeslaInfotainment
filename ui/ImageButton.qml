@@ -1,6 +1,6 @@
 import QtQuick
 
-Item {
+Image {
   id: imageButton
 
   signal clicked
@@ -11,11 +11,10 @@ Item {
 
   MouseArea {
     id: buttonMouseArea
-
     anchors.fill: parent
 
     hoverEnabled: true
-
+    cursorShape: "PointingHandCursor"
     onClicked: {
       imageButton.clicked()
     }

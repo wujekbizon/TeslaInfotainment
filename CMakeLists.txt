@@ -19,18 +19,17 @@ qt_add_qml_module(appTeslaInfotainment
     VERSION 1.0
     QML_FILES
     Main.qml
-    ui/BottomBar/BottomBar.qml
-    ui/RightScreen/RightScreen.qml
-    ui/LeftScreen/LeftScreen.qml
-    ui/RightScreen/NavigationSearchBox.qml
-    ui/BottomBar/HVACComponent.qml
-    ui/BottomBar/VolumeControlComponent.qml
-    ui/BottomBar/PlayerControllerComponent.qml
-    ui/RightScreen/MapComponent.qml
-    ui/BottomBar/ImageButton.qml
-    ui/BottomBar/AudioInfoBox.qml
-    ui/BottomBar/PlaylistPanel.qml
-
+    ui/BottomBar.qml
+    ui/MapComponent.qml
+    ui/RightScreen.qml
+    ui/LeftScreen.qml
+    ui/NavigationSearchBox.qml
+    ui/ImageButton.qml
+    ui/VolumeControlComponent.qml
+    ui/PlayerControllerComponent.qml
+    ui/AudioInfoBox.qml
+    ui/PlaylistPanel.qml
+    ui/HVACComponent.qml
 
     SOURCES
 
@@ -73,6 +72,7 @@ qt_add_qml_module(appTeslaInfotainment
     ui/assets/icons/pause.png
     ui/assets/icons/delete.png
     ui/assets/icons/add.png
+    ui/assets/icons/playlist.png
 
     ui/assets/audio/air_on_the_g_string.mp3
     ui/assets/audio/eine_kleine_nachtmusik.mp3

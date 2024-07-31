@@ -15,7 +15,7 @@ Item {
     plugin: mapPlugin
     center: QtPositioning.coordinate(37.46, -122.14) // Palo Alto
     zoomLevel: 14
-
+    z: -1
     property geoCoordinate startCentroid
 
     PinchHandler {

@@ -37,7 +37,7 @@ Rectangle {
     width: parent.width / 35
     fillMode: Image.PreserveAspectFit
 
-    source: (SystemHandler.carLocked ? "../assets/icons/lock.png" : "../assets/icons/unlock.png")
+    source: (SystemHandler.carLocked ? "assets/icons/lock.png" : "assets/icons/unlock.png")
 
     MouseArea {
       anchors.fill: parent
@@ -96,7 +96,7 @@ Rectangle {
     width: parent.width / 35
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/user.png"
+    source: "assets/icons/user.png"
   }
 
   Text {

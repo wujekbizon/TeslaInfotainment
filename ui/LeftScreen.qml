@@ -16,6 +16,6 @@ Rectangle {
     anchors.centerIn: parent
     width: parent.width * .80
     fillMode: Image.PreserveAspectFit
-    source: "../assets/images/tesla1.png"
+    source: "assets/images/tesla1.png"
   }
 }

@@ -15,7 +15,7 @@ Item {
 
   Timer {
     id: visibileTimer
-    interval: 750
+    interval: 500
     repeat: false
     onTriggered: {
       volumeLevelIcon.visible = true
@@ -37,16 +37,14 @@ Item {
     width: height / 2
     color: "transparent"
 
-    Text {
-      id: volumeDownText
-      color: fontColor
+    ImageButton {
+      id: volumeDownIcon
       anchors.centerIn: parent
-      text: "<"
-      font.pixelSize: 18
-    }
+      source: "assets/icons/left-arrow.png"
 
-    MouseArea {
-      anchors.fill: parent
+      height: parent.height * .20
+      fillMode: Image.PreserveAspectFit
+      opacity: 0.6
       onClicked: {
         AudioController.incrementVolume(-1)
       }
@@ -67,13 +65,13 @@ Item {
 
     source: {
       if (AudioController.volumeLevel < 1)
-        return "../assets/icons/mute.png"
+        return "assets/icons/mute.png"
       else if (AudioController.volumeLevel <= 35)
-        return "../assets/icons/volume1.png"
+        return "assets/icons/volume1.png"
       else if (AudioController.volumeLevel <= 70)
-        return "../assets/icons/volume2.png"
+        return "assets/icons/volume2.png"
       else
-        return "../assets/icons/volume3.png"
+        return "assets/icons/volume3.png"
     }
   }
 
@@ -103,16 +101,14 @@ Item {
     width: height / 2
     color: "transparent"
 
-    Text {
-      id: volumeUpText
-      color: fontColor
+    ImageButton {
+      id: volumeUpIcon
       anchors.centerIn: parent
-      text: ">"
-      font.pixelSize: 18
-    }
+      source: "assets/icons/right-arrow.png"
 
-    MouseArea {
-      anchors.fill: parent
+      height: parent.height * .20
+      fillMode: Image.PreserveAspectFit
+      opacity: 0.6
       onClicked: {
         AudioController.incrementVolume(1)
       }

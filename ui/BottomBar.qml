@@ -1,7 +1,6 @@
 import QtQuick
 import com.company.DriverHVAC
 import com.company.PassengerHVAC
-import "../RightScreen"
 
 Rectangle {
   id: bottomBar
@@ -15,7 +14,7 @@ Rectangle {
   height: parent.height / 10
   color: "black"
 
-  Image {
+  ImageButton {
     id: carSettingsIcon
 
     anchors {
@@ -27,7 +26,7 @@ Rectangle {
     height: parent.height * .50
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/car.png"
+    source: "assets/icons/car.png"
   }
 
   HVACComponent {
@@ -42,7 +41,7 @@ Rectangle {
     hvacController: DriverHVAC
   }
 
-  Image {
+  ImageButton {
     id: phoneIcon
 
     anchors {
@@ -54,7 +53,7 @@ Rectangle {
     height: parent.height * .40
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/call.png"
+    source: "assets/icons/call.png"
   }
 
   ImageButton {
@@ -65,16 +64,17 @@ Rectangle {
       verticalCenter: parent.verticalCenter
       leftMargin: 35
     }
-    source: "../assets/icons/radio.png"
+    source: "assets/icons/radio.png"
     height: parent.height * .40
     fillMode: Image.PreserveAspectFit
 
     onClicked: {
       musicPlayer.hidden = !musicPlayer.hidden
+      playlistPanel.hidden = true
     }
   }
 
-  Image {
+  ImageButton {
     id: cameraIcon
 
     anchors {
@@ -86,11 +86,11 @@ Rectangle {
     height: parent.height * .45
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/lens.png"
+    source: "assets/icons/lens.png"
   }
 
   ImageButton {
-    id: playListIcon
+    id: moreIconButton
 
     anchors {
       left: cameraIcon.right
@@ -101,19 +101,14 @@ Rectangle {
     height: parent.height * .40
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/more.png"
-
-    //visible: searchPanel.hidden
-    onClicked: {
-      playlistPanel.hidden = !playlistPanel.hidden
-    }
+    source: "assets/icons/more.png"
   }
 
-  Image {
+  ImageButton {
     id: menuIcon
 
     anchors {
-      left: playListIcon.right
+      left: moreIconButton.right
       verticalCenter: parent.verticalCenter
       leftMargin: 35
     }
@@ -121,10 +116,10 @@ Rectangle {
     height: parent.height * .40
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/menu.png"
+    source: "assets/icons/menu.png"
   }
 
-  Image {
+  ImageButton {
     id: settingsIcon
 
     anchors {
@@ -136,10 +131,10 @@ Rectangle {
     height: parent.height * .45
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/settings.png"
+    source: "assets/icons/settings.png"
   }
 
-  Image {
+  ImageButton {
     id: calendarIcon
 
     anchors {
@@ -151,7 +146,7 @@ Rectangle {
     height: parent.height * .40
     fillMode: Image.PreserveAspectFit
 
-    source: "../assets/icons/calendar.png"
+    source: "assets/icons/calendar.png"
   }
 
   HVACComponent {
@@ -191,7 +186,7 @@ Rectangle {
 
     anchors {
       bottom: bottomBar.top
-      bottomMargin: bottomBar.height * 1.8
+      bottomMargin: (bottomBar.height * 1.8) - 1
     }
 
     x: hidden ? parent.width : parent.width - width

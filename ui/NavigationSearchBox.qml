@@ -17,7 +17,7 @@ Rectangle {
     fillMode: Image.PreserveAspectFit
     height: parent.height * .45
     mipmap: true
-    source: "../assets/icons/loupe.png"
+    source: "assets/icons/loupe.png"
   }
 
   Text {
