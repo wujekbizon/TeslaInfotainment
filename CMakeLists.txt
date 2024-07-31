@@ -30,6 +30,8 @@ qt_add_qml_module(appTeslaInfotainment
     ui/AudioInfoBox.qml
     ui/PlaylistPanel.qml
     ui/HVACComponent.qml
+    ui/SearchField.qml
+    ui/SearchPanel.qml
 
     SOURCES
 
@@ -73,6 +75,8 @@ qt_add_qml_module(appTeslaInfotainment
     ui/assets/icons/delete.png
     ui/assets/icons/add.png
     ui/assets/icons/playlist.png
+    ui/assets/icons/search_icon.png
+    ui/assets/icons/close_icon.png
 
     ui/assets/audio/air_on_the_g_string.mp3
     ui/assets/audio/eine_kleine_nachtmusik.mp3

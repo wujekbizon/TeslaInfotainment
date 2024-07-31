@@ -70,7 +70,8 @@ Rectangle {
 
     onClicked: {
       musicPlayer.hidden = !musicPlayer.hidden
-      playlistPanel.hidden = true
+      // think about a way to connect this onClick handler with the playlist object
+      //playlistPanel.hidden = true
     }
   }
 
@@ -179,20 +180,5 @@ Rectangle {
     }
 
     y: hidden ? parent.height : parent.height - height - bottomBar.height
-  }
-
-  PlaylistPanel {
-    id: playlistPanel
-
-    anchors {
-      bottom: bottomBar.top
-      bottomMargin: (bottomBar.height * 1.8) - 1
-    }
-
-    x: hidden ? parent.width : parent.width - width
-
-    // onSearchRequested: {
-    //   searchPanel.hidden = false
-    // }
   }
 }

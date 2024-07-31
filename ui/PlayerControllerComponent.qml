@@ -1,8 +1,9 @@
 import QtQuick
 import com.company.PlayerController
+import com.company.AudioSearchModel
 
 Rectangle {
-
+  id: mainPlayerController
   property bool hidden: true
 
   height: parent.height * 1.8
@@ -46,9 +47,10 @@ Rectangle {
 
     source: "assets/icons/playlist.png"
 
-    //visible: searchPanel.hidden
+    visible: searchPanel.hidden
     onClicked: playlistPanel.hidden = !playlistPanel.hidden
   }
+
   Row {
     id: buttonsRow
     anchors {
@@ -91,6 +93,34 @@ Rectangle {
       source: "assets/icons/next.png"
 
       onClicked: PlayerController.switchToNextSong()
+    }
+  }
+
+  SearchPanel {
+    id: searchPanel
+
+    anchors {
+      left: parent.left
+      right: parent.right
+    }
+
+    height: rightScreen.height
+
+    y: hidden ? parent.height : parent.height - height
+  }
+
+  PlaylistPanel {
+    id: playlistPanel
+
+    anchors {
+      bottom: parent.top
+      bottomMargin: -1
+    }
+
+    x: hidden ? parent.width : parent.width - width
+
+    onSearchRequested: {
+      searchPanel.hidden = false
     }
   }
 

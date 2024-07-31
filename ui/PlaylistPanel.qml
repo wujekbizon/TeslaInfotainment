@@ -2,7 +2,7 @@ import QtQuick
 import com.company.PlayerController
 
 Rectangle {
-  id: root
+  id: playlistPanelRoot
 
   property bool hidden: true
 
@@ -161,8 +161,8 @@ Rectangle {
     height: 32
 
     onClicked: {
-      root.searchRequested()
-      root.hidden = true
+      playlistPanelRoot.searchRequested()
+      playlistPanelRoot.hidden = true
     }
   }
 
