@@ -3,17 +3,32 @@ import com.company.PlayerController
 import com.company.AudioSearchModel
 
 Rectangle {
-  id: root
+  id: searchPanelRoot
 
   property bool hidden: true
 
-  color: "#333333"
+  gradient: Gradient {
+    GradientStop {
+      position: 0.0
+      color: "black"
+    }
+
+    GradientStop {
+      position: 0.5
+      color: "#1e1e1e"
+    }
+
+    GradientStop {
+      position: 1.0
+      color: "black"
+    }
+  }
 
   ListView {
     id: listView
 
     anchors {
-      fill: playlistPanel
+      fill: parent
       margins: 20
     }
 
@@ -96,7 +111,7 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
         onClicked: {
-          root.hidden = true
+          searchPanelRoot.hidden = true
           PlayerController.addAudio(delegate.audioName, delegate.audioAuthor,
                                     delegate.audioSource,
                                     delegate.audioImageSource)
@@ -123,51 +138,62 @@ Rectangle {
     }
   }
 
-  SearchField {
+  Rectangle {
+    id: topbar
+
     anchors {
       top: parent.top
       left: parent.left
-      right: closeSearchButton.left
-      verticalCenter: parent.verticalCenter
-      margins: 10
-    }
-
-    height: 30
-
-    visible: !searchPanel.hidden
-    enabled: !AudioSearchModel.isSearchng
-
-    onAccepted: value => {
-                  AudioSearchModel.searchSong(value)
-                  //topbar.forceActiveFocus()
-                }
-  }
-
-  ImageButton {
-    id: closeSearchButton
-
-    anchors {
-      top: parent.top
       right: parent.right
-      verticalCenter: parent.verticalCenter
-      rightMargin: 20
     }
 
-    height: 32
-    width: 32
+    height: 70
+    color: "black"
 
-    source: "assets/icons/close_icon.png"
-    visible: !searchPanel.hidden
+    SearchField {
+      anchors {
+        left: parent.left
+        right: closeSearchButton.left
+        verticalCenter: parent.verticalCenter
+        margins: 10
+      }
 
-    onClicked: {
-      searchPanel.hidden = true
+      height: 40
+
+      visible: !searchPanel.hidden
+      enabled: !AudioSearchModel.isSearchng
+
+      onAccepted: value => {
+                    AudioSearchModel.searchSong(value)
+                    topbar.forceActiveFocus()
+                  }
+    }
+
+    ImageButton {
+      id: closeSearchButton
+
+      anchors {
+        right: parent.right
+        verticalCenter: parent.verticalCenter
+        rightMargin: 20
+      }
+
+      height: 32
+      width: 32
+
+      source: "assets/icons/close_icon.png"
+      visible: !searchPanel.hidden
+
+      onClicked: {
+        searchPanel.hidden = true
+      }
     }
   }
 
   Behavior on y {
     PropertyAnimation {
       easing.type: Easing.InOutQuad
-      duration: 200
+      duration: 400
     }
   }
 }

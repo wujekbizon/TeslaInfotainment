@@ -1,12 +1,12 @@
 import QtQuick
 
 Rectangle {
-  id: root
+  id: searchFieldRoot
 
   signal accepted(string value)
 
   color: "#1e1e1e"
-  border.color: searchInput.activeFocus ? Qt.lighter("#5F8575") : "transparent"
+  border.color: searchInput.activeFocus ? Qt.lighter("#1e1e1e") : "transparent"
   border.width: 1
 
   opacity: enabled ? 1 : 0.6
@@ -15,12 +15,12 @@ Rectangle {
     id: searchInput
 
     anchors {
-      top: parent.top
       left: parent.left
       right: parent.right
+      verticalCenter: parent.verticalCenter
+      leftMargin: 30
+      rightMargin: 30
     }
-
-    height: 30
 
     font.pixelSize: 14
     color: "white"
@@ -43,7 +43,7 @@ Rectangle {
     }
 
     onAccepted: {
-      root.accepted(text)
+      searchFieldRoot.accepted(text)
     }
   }
 }
