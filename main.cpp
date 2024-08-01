@@ -1,6 +1,5 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QQmlContext>
 #include "Controllers/AudioController.h"
 #include "Controllers/AudioSearchModel.h"
 #include "Controllers/PlayerController.h"

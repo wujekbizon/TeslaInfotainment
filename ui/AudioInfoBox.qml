@@ -40,13 +40,6 @@ Item {
     volume: AudioController.volumeLevel * 0.01
 
     source: !!PlayerController.currentSong ? PlayerController.currentSong.videoSource : ""
-
-    onAutoPlayChanged: {
-      if (source === PlayerController.currentSong.videoSource) {
-        console.log("Change")
-      }
-    }
-
     onSourceChanged: {
       if (source !== "") {
         play()

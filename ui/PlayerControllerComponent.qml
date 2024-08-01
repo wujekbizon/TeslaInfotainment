@@ -1,6 +1,7 @@
 import QtQuick
 import com.company.PlayerController
 import com.company.AudioSearchModel
+import com.company.AudioController
 
 Rectangle {
   id: mainPlayerController
@@ -51,12 +52,32 @@ Rectangle {
     onClicked: playlistPanel.hidden = !playlistPanel.hidden
   }
 
+  ImageButton {
+    id: fullscreenIcon
+
+    anchors {
+      right: playListIcon.left
+      top: parent.top
+      margins: 10
+      rightMargin: 20
+    }
+
+    height: parent.height * .18
+    fillMode: Image.PreserveAspectFit
+
+    source: "assets/icons/fullscreen.png"
+
+    onClicked: {
+      fullscreenVideoBox.isHidden = !fullscreenVideoBox.isHidden
+    }
+  }
+
   Row {
     id: buttonsRow
     anchors {
       right: parent.right
       verticalCenter: parent.verticalCenter
-      rightMargin: 50
+      rightMargin: 150
     }
 
     spacing: 50
@@ -107,6 +128,16 @@ Rectangle {
     height: rightScreen.height
 
     y: hidden ? parent.height : parent.height - height
+  }
+
+  VideoPlayerFullscreenWindow {
+    id: fullscreenVideoBox
+
+    anchors {
+      bottom: parent.bottom
+    }
+
+    x: isHidden ? parent.width : parent.width - width
   }
 
   PlaylistPanel {
