@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import "ui"
 
 Window {
@@ -7,6 +8,11 @@ Window {
   height: 720
   visible: true
   title: qsTr("Tesla Infotainment")
+
+  Pane {
+    anchors.fill: parent
+    focusPolicy: Qt.ClickFocus
+  }
 
   LeftScreen {
     id: leftScreen

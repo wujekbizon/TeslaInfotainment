@@ -3,9 +3,10 @@ import QtQuick
 Rectangle {
   id: navigationSearchBox
 
-  topRightRadius: 10
-  bottomRightRadius: 10
-  color: "#fafafa"
+  signal accepted(string value)
+
+  radius: 10
+  color: "#f2f0e9"
 
   z: 1
   Image {
@@ -49,5 +50,9 @@ Rectangle {
     }
     verticalAlignment: TextInput.AlignVCenter
     font.pixelSize: 18
+
+    onAccepted: {
+      navigationSearchBox.accepted(text)
+    }
   }
 }

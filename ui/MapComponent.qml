@@ -3,10 +3,13 @@ import QtLocation
 import QtPositioning
 
 Item {
-
   Plugin {
     id: mapPlugin
     name: "osm"
+    PluginParameter {
+      name: "osm.mapping.custom.host"
+      value: "https://tile.thunderforest.com/cycle/%z/%x/%y.png?apikey=4a8890f4b47f4740ac529cc975bb64ab"
+    }
   }
 
   Map {
@@ -15,8 +18,12 @@ Item {
     plugin: mapPlugin
     center: QtPositioning.coordinate(37.46, -122.14) // Palo Alto
     zoomLevel: 14
-    z: -1
 
+    onSupportedMapTypesChanged: {
+      map.activeMapType = map.supportedMapTypes[map.supportedMapTypes.length - 1]
+    }
+
+    z: -1
     property geoCoordinate startCentroid
 
     PinchHandler {

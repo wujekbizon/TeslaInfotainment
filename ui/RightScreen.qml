@@ -17,17 +17,21 @@ Rectangle {
 
     anchors {
       top: lockIcon.bottom
-      left: parent.left
+      left: lockIcon.left
       topMargin: 15
     }
 
     width: parent.width * 1 / 3
     height: parent.height * 1 / 12
+
+    onAccepted: value => {
+                  console.log(value)
+                  leftScreen.forceActiveFocus()
+                }
   }
 
   Image {
     id: lockIcon
-
     anchors {
       left: parent.left
       top: parent.top

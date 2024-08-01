@@ -36,10 +36,16 @@ Item {
 
     loops: MediaPlayer.Infinite
     // volume is a float between 0 and 1
-    // to convert my volumeLevel to volume need to * by 0.01
+    // to convert my volumeLevel to volume I need to * by 0.01
     volume: AudioController.volumeLevel * 0.01
 
     source: !!PlayerController.currentSong ? PlayerController.currentSong.videoSource : ""
+
+    onAutoPlayChanged: {
+      if (source === PlayerController.currentSong.videoSource) {
+        console.log("Change")
+      }
+    }
 
     onSourceChanged: {
       if (source !== "") {
