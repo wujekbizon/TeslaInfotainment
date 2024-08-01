@@ -2,7 +2,6 @@ import QtQuick
 
 Rectangle {
   id: leftScreen
-
   anchors {
     top: parent.top
     bottom: bottomBar.top

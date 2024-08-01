@@ -3,9 +3,11 @@ import QtQuick
 Rectangle {
   id: navigationSearchBox
 
-  radius: 10
+  topRightRadius: 10
+  bottomRightRadius: 10
   color: "#fafafa"
 
+  z: 1
   Image {
     id: searchIcon
     anchors {

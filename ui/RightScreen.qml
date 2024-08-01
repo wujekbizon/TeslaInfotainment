@@ -17,10 +17,10 @@ Rectangle {
 
     anchors {
       top: lockIcon.bottom
-      left: lockIcon.left
+      left: parent.left
       topMargin: 15
     }
-    z: 1
+
     width: parent.width * 1 / 3
     height: parent.height * 1 / 12
   }

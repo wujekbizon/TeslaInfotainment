@@ -13,19 +13,23 @@ PlayerController::PlayerController(QObject *parent)
 
     addAudio("Eine Kleine Nachtmusik",
              "Wolfgang Amadeus Mozart",
-             QUrl("qrc:/TeslaInfotainment/ui/assets/audio/eine_kleine_nachtmusik.mp3"),
+             QUrl("D:/QTProjects/TeslaInfotainment/ui/assets/audio/eine_kleine_nachtmusik.mp3"),
              QUrl("assets/images/song_1.png"));
 
     addAudio("Symphony No. 5",
              "Ludwig Van Beethoven",
-             QUrl("qrc:/TeslaInfotainment/ui/assets/audio/symphony_no_5.mp3"),
+             QUrl("D:/QTProjects/TeslaInfotainment/ui/assets/audio/symphony_no_5.mp3"),
              QUrl("assets/images/song_2.png"));
 
     addAudio("Air on the G String",
              "Johann Sebastian Bach",
-             QUrl("qrc:/TeslaInfotainment/ui/assets/audio/air_on_the_g_string.mp3"),
-             QUrl("assets/images/song_3.png"),
-             QUrl("qrc:/TeslaInfotainment/ui/assets/videos/video_1.mp4"));
+             QUrl("D:/QTProjects/TeslaInfotainment/ui/assets/audio/air_on_the_g_string.mp3"),
+             QUrl("assets/images/song_3.png"));
+    addAudio("What is Love",
+             "Haddaway",
+             QUrl(""),
+             QUrl(""),
+             QUrl("D:/QTProjects/TeslaInfotainment/ui/assets/videos/video1.mp4"));
 }
 
 bool PlayerController::playing() const
@@ -114,8 +118,6 @@ void PlayerController::changeAudioSource(const QUrl &source)
     m_mediaPlayer.setSource(source);
 
     if (m_playing) {
-        qDebug() << source;
-        qDebug() << m_playing;
         m_mediaPlayer.play();
     }
 }

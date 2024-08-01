@@ -72,7 +72,7 @@ Item {
       fillMode: Image.PreserveAspectFit
       opacity: 0.6
       onClicked: {
-        hvacController.incrementTargetTemperature(-0.5)
+        hvacController.incrementTargetTemperature(0.5)
       }
     }
   }

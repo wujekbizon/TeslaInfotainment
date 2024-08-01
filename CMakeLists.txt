@@ -48,6 +48,7 @@ qt_add_qml_module(appTeslaInfotainment
     ui/assets/images/song_1.png
     ui/assets/images/song_2.png
     ui/assets/images/song_3.png
+    ui/assets/images/song4.jpg
 
     ui/assets/icons/electric_car_icon.png
     ui/assets/icons/car.png
@@ -82,7 +83,7 @@ qt_add_qml_module(appTeslaInfotainment
     ui/assets/audio/eine_kleine_nachtmusik.mp3
     ui/assets/audio/symphony_no_5.mp3
 
-    ui/assets/videos/video_1.mp4
+    ui/assets/videos/video1.mp4
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
